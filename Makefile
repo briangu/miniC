@@ -1,14 +1,11 @@
 CC = gcc
-CFLAGS = -Wall -O2
-TARGETS = fib gen_add jit repl
+CFLAGS = -Wall -O3
+TARGETS = fib jit repl
 
 all: $(TARGETS)
 
 fib: fib.c miniC.h
 	$(CC) $(CFLAGS) -o fib fib.c
-
-gen_add: gen_add.c miniC.h
-	$(CC) $(CFLAGS) -o gen_add gen_add.c
 
 jit: jit.c miniC.h
 	$(CC) $(CFLAGS) -o jit jit.c
