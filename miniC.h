@@ -20,6 +20,8 @@ typedef unsigned long long UJ;
 #define W while
 #define O printf
 #define R return
+#define Z static
+#define ZC static const
 #define N(x) if (!(x)) return;
 #define NP(x) if (!(x)) return NULL;
 

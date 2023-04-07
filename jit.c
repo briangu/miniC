@@ -7,10 +7,10 @@
 typedef F (*JF)(F, F);
 JF a(size_t s) { R(JF)mmap(0, s, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); }
 V f(JF j, size_t s) { munmap(j, s); }
+ZC G op[256] = { ['+'] = 0x58, ['-'] = 0x5C, ['*'] = 0x59, ['/'] = 0x5E };
 JF g(char o) {
     JF j = a(4096); if (j == MAP_FAILED) R 0;
-    G c[] = {0xf2, 0x0f, 0x00, 0xc1, 0xc3};
-    SW (o) { CS('+', c[2] = 0x58) CS('-', c[2] = 0x5c) CS('*', c[2] = 0x59) CS('/', c[2] = 0x5e) CD { f(j, 4096); R 0; } }
+    G c[] = {0xf2, 0x0f, op[(G)o], 0xc1, 0xc3};
     memcpy(j, c, sizeof(c)); R j;
 }
 M {
