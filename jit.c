@@ -4,12 +4,6 @@
 #include <sys/mman.h>
 #include "miniC.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/mman.h>
-#include "miniC.h"
-
 typedef F (*JF)(F, F);
 JF a(size_t s) { return (JF)mmap(0, s, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); }
 V f(JF j, size_t s) { munmap(j, s); }
