@@ -23,5 +23,12 @@ typedef unsigned long long UJ;
 #define N(x) if (!(x)) return;
 #define NP(x) if (!(x)) return NULL;
 
+#define SW switch
+#define CS(n, x) \
+    case n:      \
+        x;       \
+        break;
+#define CD default:
+
 #endif // MINIC_H
 
