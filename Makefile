@@ -1,40 +1,21 @@
-# Compiler
 CC = gcc
+CFLAGS = -Wall -O2
+TARGETS = fib gen_add jit repl
 
-# Compiler flags
-CFLAGS = -Wall -Wextra -O2
+all: $(TARGETS)
 
-# Executable names
-FIB_EXEC = fib
-GEN_ADD_EXEC = gen_add
-REPL_EXEC = repl
+fib: fib.c miniC.h
+	$(CC) $(CFLAGS) -o fib fib.c
 
-# Source files
-FIB_SRC = fib.c
-GEN_ADD_SRC = gen_add.c
-REPL_SRC = repl.c
+gen_add: gen_add.c miniC.h
+	$(CC) $(CFLAGS) -o gen_add gen_add.c
 
-# Header files
-MINIC_HEADER = miniC.h
+jit: jit.c miniC.h
+	$(CC) $(CFLAGS) -o jit jit.c
 
-# Build all targets
-all: $(FIB_EXEC) $(GEN_ADD_EXEC) $(REPL_EXEC)
+repl: repl.c miniC.h
+	$(CC) $(CFLAGS) -o repl repl.c
 
-# Build fib
-$(FIB_EXEC): $(FIB_SRC) $(MINIC_HEADER)
-	$(CC) $(CFLAGS) -o $(FIB_EXEC) $(FIB_SRC)
-
-# Build gen_add
-$(GEN_ADD_EXEC): $(GEN_ADD_SRC) $(MINIC_HEADER)
-	$(CC) $(CFLAGS) -o $(GEN_ADD_EXEC) $(GEN_ADD_SRC)
-
-# Build repl
-$(REPL_EXEC): $(REPL_SRC) $(MINIC_HEADER)
-	$(CC) $(CFLAGS) -o $(REPL_EXEC) $(REPL_SRC)
-
-# Clean up build artifacts
 clean:
-	rm -f $(FIB_EXEC) $(GEN_ADD_EXEC) $(REPL_EXEC)
-
-.PHONY: all clean
+	rm -f $(TARGETS)
 

@@ -21,6 +21,7 @@ typedef unsigned long long UJ;
 #define O printf
 #define R return
 #define N(x) if (!(x)) return;
+#define NP(x) if (!(x)) return NULL;
 
 #endif // MINIC_H
 
