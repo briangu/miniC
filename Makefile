@@ -1,6 +1,6 @@
 CC = gcc
 CXX = g++
-CFLAGS = -Wall -O3
+CFLAGS = -Wall -Ofast
 CXXFLAGS = -std=c++14 $(shell llvm-config --cxxflags)
 LLVMCFLAGS = $(shell llvm-config --cflags)
 LLVMLIBS = $(shell llvm-config --ldflags --system-libs --libs core executionengine mcjit native orcjit)
