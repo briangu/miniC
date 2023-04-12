@@ -54,23 +54,19 @@ int main() {
 
   // Create the IRBuilder for each function
   Builder.SetInsertPoint(addBB);
-  Value *addResult =
-      Builder.CreateFAdd(addFunc->arg_begin(), (addFunc->arg_begin() + 1));
+  Value *addResult = Builder.CreateFAdd(addFunc->arg_begin(), (addFunc->arg_begin() + 1));
   Builder.CreateRet(addResult);
 
   Builder.SetInsertPoint(subBB);
-  Value *subResult =
-      Builder.CreateFSub(subFunc->arg_begin(), (subFunc->arg_begin() + 1));
+  Value *subResult = Builder.CreateFSub(subFunc->arg_begin(), (subFunc->arg_begin() + 1));
   Builder.CreateRet(subResult);
 
   Builder.SetInsertPoint(mulBB);
-  Value *mulResult =
-      Builder.CreateFMul(mulFunc->arg_begin(), (mulFunc->arg_begin() + 1));
+  Value *mulResult = Builder.CreateFMul(mulFunc->arg_begin(), (mulFunc->arg_begin() + 1));
   Builder.CreateRet(mulResult);
 
   Builder.SetInsertPoint(divBB);
-  Value *divResult =
-      Builder.CreateFDiv(divFunc->arg_begin(), (divFunc->arg_begin() + 1));
+  Value *divResult = Builder.CreateFDiv(divFunc->arg_begin(), (divFunc->arg_begin() + 1));
   Builder.CreateRet(divResult);
 
   // Verify the module
