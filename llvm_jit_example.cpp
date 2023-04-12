@@ -32,19 +32,13 @@ int main() {
   IRBuilder<> Builder(Context);
 
   // Create the function types
-  FunctionType *funcType = FunctionType::get(
-      Type::getDoubleTy(Context),
-      {Type::getDoubleTy(Context), Type::getDoubleTy(Context)}, false);
+  FunctionType *funcType = FunctionType::get(Type::getDoubleTy(Context), {Type::getDoubleTy(Context), Type::getDoubleTy(Context)}, false);
 
   // Create the functions
-  Function *addFunc = Function::Create(funcType, Function::ExternalLinkage,
-                                       "add", TheModule.get());
-  Function *subFunc = Function::Create(funcType, Function::ExternalLinkage,
-                                       "sub", TheModule.get());
-  Function *mulFunc = Function::Create(funcType, Function::ExternalLinkage,
-                                       "mul", TheModule.get());
-  Function *divFunc = Function::Create(funcType, Function::ExternalLinkage,
-                                       "div", TheModule.get());
+  Function *addFunc = Function::Create(funcType, Function::ExternalLinkage, "add", TheModule.get());
+  Function *subFunc = Function::Create(funcType, Function::ExternalLinkage, "sub", TheModule.get());
+  Function *mulFunc = Function::Create(funcType, Function::ExternalLinkage, "mul", TheModule.get());
+  Function *divFunc = Function::Create(funcType, Function::ExternalLinkage, "div", TheModule.get());
 
   // Create the BasicBlocks
   BasicBlock *addBB = BasicBlock::Create(Context, "entry", addFunc);
